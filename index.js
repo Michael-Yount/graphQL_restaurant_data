@@ -99,11 +99,11 @@ var root = {
     return input;
   },
   deleterestaurant: ({ id }) => {
-    const ok = Boolean(restaurants[id]);
-    let delc = restaurants[id];
+    const good = Boolean(restaurants[id]);
+    let del1 = restaurants[id];
     restaurants = restaurants.filter((item) => item.id !== id);
-    console.log(JSON.stringify(delc));
-    return { ok };
+    console.log(JSON.stringify(del1));
+    return { good };
   },
   editrestaurant: ({ id, ...restaurant }) => {
     if (!restaurants[id]) {
