@@ -81,12 +81,12 @@ input restaurantInput{
   description: String
 }
 type DeleteResponse{
-  ok: Boolean!
+  good: Boolean!
 }
 type Mutation{
   setrestaurant(input: restaurantInput): restaurant
   deleterestaurant(id: Int!): DeleteResponse
-  editrestaurant(id: Int!, name: String!): restaurant
+  editrestaurant(id: Int!, name: String!, description: String!): restaurant
 }
 `);
 // The root provides a resolver function for each API endpoint
@@ -95,7 +95,7 @@ var root = {
   restaurant: (arg) => restaurants[arg.id],
   restaurants: () => restaurants,
   setrestaurant: ({ input }) => {
-    restaurants.push({ name: input.name, description: input.description, dishes: input.Dish });
+    restaurants.push({ name: input.name, description: input.description });
     return input;
   },
   deleterestaurant: ({ id }) => {
